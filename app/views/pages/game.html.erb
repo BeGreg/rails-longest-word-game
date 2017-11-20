@@ -1,0 +1,22 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 35%), url(' <%= asset_path("cover.jpg")%>')">
+  <div class="banner-content">
+    <h1>Welcome to the longest word-game!</h1>
+    <h2>Here is your grid:</h2>
+
+    <div class = "container">
+      <% @array.each do |x| %>
+      <div class="flex-item">
+        <div class="letter"><%= x %></div>
+      </div>
+      <% end %>
+    </div>
+
+    <h2>What's your best shot?</h2>
+
+    <form action="/score" class="form">
+      <input type="text" id="question" name="attempt" placeholder="Make it long!" class="input">
+      <input type="hidden" name=starttime value='<%= @score.start_time %>'>
+      <input type="submit" value="Go Romejko!" class="btn btn-primary" >
+    </form>
+  </div>
+</div>
